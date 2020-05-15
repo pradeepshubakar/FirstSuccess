@@ -43,7 +43,7 @@ public class Baseclass1 {
 		}
 	}
 	@BeforeMethod
-	public void login() throws IOException {
+	public void login() throws IOException, InterruptedException {
 		driver.get(f.getPropertyFileData("url"));
 		 LoginPage l=new LoginPage(driver);
 		l.getUnTbx().sendKeys(f.getPropertyFileData("username"));
@@ -52,6 +52,7 @@ public class Baseclass1 {
 		/*driver.findElement(By.xpath("//input[@id='username']")).sendKeys(f.getPropertyFileData("username"));
 		driver.findElement(By.xpath("//input[@name='pwd']")).sendKeys(f.getPropertyFileData("password"));
 		driver.findElement(By.xpath("//div[.='Login ']")).click();*/
+		Thread.sleep(10);
 	}
 	@AfterMethod
 	public void logout() throws InterruptedException {
